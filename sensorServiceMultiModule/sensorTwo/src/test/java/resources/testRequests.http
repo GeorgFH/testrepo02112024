@@ -1,0 +1,32 @@
+### Create sensor two
+POST http://localhost:8082/sensor
+Content-Type: application/json
+
+{
+  "name": "Sensor2",
+  "location": "Living Room",
+  "active": true,
+  "type": "INDOOR"
+}
+
+### Retrieve the sensor
+GET http://localhost:8082/sensor
+
+### Create a new Measurement
+POST http://localhost:8082/measurements
+Content-Type: application/json
+
+{
+  "timestamp": "2024-11-01T12:30:00",
+  "temperature": 50.0,
+  "humidity": 22.2,
+  "sensor": {
+    "id": 1
+  }
+}
+
+### Receive all measurements from sensor 2
+GET http://localhost:8082/measurements/sensor/1
+
+### Swagger
+http://localhost:8082/swagger-ui/index.html
