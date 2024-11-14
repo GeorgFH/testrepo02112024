@@ -14,7 +14,7 @@ public class Sensor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(description = "Unique identifier of the sensor", example = "1")
+    @Schema(description = "Unique identifier a sensor", example = "1")
     private Long id;
 
     @Schema(description = "Name of the sensor", example = "Sensor1")

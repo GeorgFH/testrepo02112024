@@ -28,7 +28,7 @@ public class MeasurementController {
     }
 
     /**
-     * Get Entdpoint that returns all measurements of a specific sensor
+     * Get endpoint that returns all measurements of a specific sensor
      * @param sensorId
      * @return list of measurements of the specific sensor
      */
@@ -38,7 +38,7 @@ public class MeasurementController {
     }
 
     /**
-     * Updates a specific measurement
+     * Put endpoint that updates a specific measurement
      * @param id
      * @param newMeasurement
      * @return returns the new measurement

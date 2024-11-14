@@ -24,6 +24,7 @@ public class MeasurementService {
         return measurementRepository.save(measurement);
     }
 
+
     /**
      * Returns all saved measurements of a specific sensor (in our case sensor one)
      * @param sensorId

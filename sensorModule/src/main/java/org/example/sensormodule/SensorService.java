@@ -16,7 +16,7 @@ public class SensorService {
 
 
     /**
-     * Creates a sensor
+     * Creates a new sensor object
      * @param sensor
      * @return
      */
@@ -34,25 +34,36 @@ public class SensorService {
                 .orElseThrow(() -> new RuntimeException("Sensor not found"));
     }
 
-    // Alle Sensoren abrufen
+    /**
+     * Returns the specific information of all generated sensors
+     * @return
+     */
     public List<Sensor> getAllSensors() {
         return sensorRepository.findAll();
     }
 
-    // Sensor aktualisieren
+    /**
+     * Updates the information of a specific sensor by id
+     * @param id
+     * @param updatedSensor
+     * @return
+     */
     public Sensor updateSensor(Long id, Sensor updatedSensor) {
-        Sensor sensor = getSensorById(id);
-        sensor.setName(updatedSensor.getName());
-        sensor.setLocation(updatedSensor.getLocation());
-        sensor.setType(updatedSensor.getType());
-        sensor.setActive(updatedSensor.isActive());
-        return sensorRepository.save(sensor);
+        Sensor sensor = sensorRepository.findById(id).orElse(null);
+
+        if (sensor != null) {
+            sensor.setName(updatedSensor.getName());
+            sensor.setLocation(updatedSensor.getLocation());
+            sensor.setType(updatedSensor.getType());
+            sensor.setActive(updatedSensor.isActive());
+            return sensorRepository.save(sensor);
+        } else {
+            return null;
+        }
     }
 
-
-
     /**
-     * Deletes a specific sensor
+     * Deletes a specific sensor by id
      */
     public void deleteSensor(Long id) {
         sensorRepository.deleteById(id);

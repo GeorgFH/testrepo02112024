@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * REST-controller for the administaration of sensors (in our case sensor 1)
+ * REST-controller for the administration of sensors
  */
 @RestController
 @RequestMapping("/sensor")
@@ -17,7 +17,7 @@ public class SensorController {
 
 
     /**
-     * Creates or updates a sensor
+     * Post endpoint to create a new sensor
      * @param sensor
      * @return
      */
@@ -27,25 +27,43 @@ public class SensorController {
     }
 
 
+    /**
+     * Get endpoint that returns all generated sensors
+     * @return
+     */
     @GetMapping
     public List<Sensor> getAllSensors() {
         return sensorService.getAllSensors();
     }
 
+    /**
+     * Get endpoint that returns a specific sensor
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
     public Sensor getSensorById(@PathVariable Long id) {
         return sensorService.getSensorById(id);
     }
 
 
+    /**
+     * Put endpoint that updates a specific sensor
+     * @param id
+     * @param updatedSensor
+     * @return
+     */
     @PutMapping("/{id}")
     public Sensor updateSensor(@PathVariable Long id, @RequestBody Sensor updatedSensor) {
         return sensorService.updateSensor(id, updatedSensor);
     }
 
+    /**
+     * Deletes a specific sensor
+     * @param id
+     */
     @DeleteMapping("/{id}")
     public void deleteSensor(@PathVariable Long id) {
         sensorService.deleteSensor(id);
     }
-
 }
