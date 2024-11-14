@@ -1,5 +1,5 @@
 ### Create a new sensor
-POST http://localhost:8081/sensor
+POST http://localhost:49177/sensor
 Content-Type: application/json
 
 {
