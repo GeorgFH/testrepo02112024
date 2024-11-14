@@ -1,2 +1,2 @@
-rootProject.name = 'ha-microservices-architecture-group14'
-include 'sensorOne', 'sensorTwo', 'configService'
+rootProject.name = 'testrepo02112024'
+include 'sensorModule', 'configService'

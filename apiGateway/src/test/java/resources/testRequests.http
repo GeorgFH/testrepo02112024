@@ -1,5 +1,5 @@
 ### Create sensor one
-POST http://localhost:8080/sensorone/sensor
+POST http://localhost:8080/sensormodule/sensor
 Content-Type: application/json
 
 {
@@ -9,11 +9,11 @@ Content-Type: application/json
   "type": "INDOOR"
 }
 
-### Retrieve sensor one
-GET http://localhost:8080/sensorone/sensor
+### Retrieve all sensors
+GET http://localhost:8080/sensormodule/sensor
 
 ### Create a new measurement on sensor one
-POST http://localhost:8080/sensorone/measurements
+POST http://localhost:8080/sensormodule/measurements
 Content-Type: application/json
 
 {
@@ -26,10 +26,10 @@ Content-Type: application/json
 }
 
 ### Receive all measurements from sensor one
-GET http://localhost:8080/sensorone/measurements/sensor/1
+GET http://localhost:8080/sensormodule/measurements/sensor/1
 
 ### Update a measurement
-PUT http://localhost:8080/sensorone/measurements/1
+PUT http://localhost:8080/sensormodule/measurements/2
 Content-Type: application/json
 
 {
@@ -38,51 +38,9 @@ Content-Type: application/json
   "humidity": 99.0
 }
 
-### Create sensor two
-POST http://localhost:8080/sensortwo/sensor
-Content-Type: application/json
-
-{
-  "name": "Sensor2",
-  "location": "Bath Room",
-  "active": true,
-  "type": "INDOOR"
-}
-
-### Retrieve sensor two
-GET http://localhost:8080/sensortwo/sensor
-
-### Create a new measurement on sensor two
-POST http://localhost:8080/sensortwo/measurements
-Content-Type: application/json
-
-{
-  "timestamp": "2024-11-07T19:50:00",
-  "temperature": 22.0,
-  "humidity": 99.9,
-  "sensor": {
-    "id": 2
-  }
-}
-
-### Receive all measurements from sensor two
-GET http://localhost:8080/sensortwo/measurements/sensor/2
-
-### Update a measurement
-PUT http://localhost:8080/sensortwo/measurements/2
-Content-Type: application/json
-
-{
-  "timestamp": "2024-11-07T12:00:00Z",
-  "temperature": 10.1,
-  "humidity": 20.5
-}
 
 ### Delete all measures of sensor 1
-DELETE http://localhost:8080/sensorone/measurements/sensor/1
-
-### Delete all measures of sensor 2
-DELETE http://localhost:8080/sensortwo/measurements/sensor/2
+DELETE http://localhost:8080/sensormodule/measurements/sensor/1
 
 
 ### Usage of the Spring Boot Actuator

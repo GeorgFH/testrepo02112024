@@ -1,0 +1,57 @@
+### Create a new sensor
+POST http://localhost:8081/sensor
+Content-Type: application/json
+
+{
+  "name": "Sensor1",
+  "location": "Living Room",
+  "active": true,
+  "type": "INDOOR"
+}
+
+### Retrieve all created sensors
+GET http://localhost:8081/sensor
+
+### Update a specific sensor
+PUT http://localhost:8081/sensor/1
+Content-Type: application/json
+
+{
+  "name": "Updated Sensor Name",
+  "location": "Kitchen",
+  "active": false,
+  "type": "OUTDOOR"
+}
+
+### Retrieve a specific sensor
+GET http://localhost:8081/sensor/1
+
+
+### Create a new Measurement
+POST http://localhost:8081/measurements
+Content-Type: application/json
+
+{
+  "timestamp": "2024-11-01T12:30:00",
+  "temperature": 50.0,
+  "humidity": 22.2,
+  "sensor": {
+    "id": 2
+  }
+}
+
+### Receive all measurements from sensor 1
+GET http://localhost:8081/measurements/sensor/1
+
+### Update a measurement
+PUT http://localhost:8081/measurements/1
+Content-Type: application/json
+
+{
+  "timestamp": "2024-11-07T12:00:00Z",
+  "temperature": 80.5,
+  "humidity": 99.0
+}
+
+### Swagger
+http://localhost:8081/swagger-ui/index.html
