@@ -55,7 +55,6 @@ public class SensorService {
      * Deletes a specific sensor
      */
     public void deleteSensor(Long id) {
-
         sensorRepository.deleteById(id);
     }
 }

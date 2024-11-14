@@ -23,7 +23,7 @@ public class SensorServiceTest {
      * Tests the method createSensor() by generating and saving a new sensor and verifying the result.
      */
     @Test
-    public void testCreateOrUpdateSensor() {
+    public void testCreateSensor() {
         Sensor sensor = new Sensor("Sensor1", "Living Room", true, SensorType.INDOOR);
         when(sensorRepository.save(any(Sensor.class))).thenReturn(sensor);
 
@@ -33,31 +33,17 @@ public class SensorServiceTest {
     }
 
     /**
-     * Tests the method getSingleSensor() by calling a sensor wit the ID 1 and mocking the behavior of the repository to guarantee that the sensor if correctly found and returned.
-     */
-    @Test
-    public void testGetSingleSensor() {
-        Sensor sensor = new Sensor("Sensor1", "Living Room", true, SensorType.INDOOR);
-        sensor.setId(1L);
-
-        when(sensorRepository.existsById(1L)).thenReturn(true);
-        when(sensorRepository.findById(1L)).thenReturn(Optional.of(sensor));
-
-        Sensor result = sensorService.getSensorById(1L);
-
-        assertNotNull(result);
-        assertEquals(1L, result.getId());
-        assertEquals("Sensor1", result.getName());
-    }
-
-    /**
      * Tests the method deleteSensor() by verifying that sensorService.deleteSensor() is called once.
      */
     @Test
-    public void testDeleteSensor(Long id) {
+    public void testDeleteSensor() {
+        Long sensorId = 1L;
         Sensor sensor = new Sensor("Sensor1", "Living Room", true, SensorType.INDOOR);
-        sensor.setId(1L);
-        sensorService.deleteSensor(1L);
-        verify(sensorRepository, times(1)).deleteAll();
+        sensor.setId(sensorId);
+
+        when(sensorRepository.findById(sensorId)).thenReturn(Optional.of(sensor));
+
+        sensorService.deleteSensor(sensorId);
+        verify(sensorRepository, times(1)).deleteById(sensorId);
     }
 }

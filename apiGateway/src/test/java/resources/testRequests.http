@@ -1,5 +1,5 @@
 ### Create sensor one
-POST http://localhost:50714/sensormodule/sensor
+POST http://localhost:8080/sensormodule/sensor
 Content-Type: application/json
 
 {
@@ -10,7 +10,7 @@ Content-Type: application/json
 }
 
 ### Retrieve all sensors
-GET http://localhost:49177/sensormodule/sensor
+GET http://localhost:8080/sensormodule/sensor
 
 ### Create a new measurement on sensor one
 POST http://localhost:8080/sensormodule/measurements
