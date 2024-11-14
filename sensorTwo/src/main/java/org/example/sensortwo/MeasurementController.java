@@ -43,6 +43,7 @@ public class MeasurementController {
      * @param newMeasurement
      * @return returns the new measurement
      */
+    @PutMapping("/{id}")
     public ResponseEntity<Measurement> updateMeasurement(@PathVariable Long id, @RequestBody Measurement newMeasurement) {
         Measurement updatedMeasurement = measurementService.updateMeasurement(id, newMeasurement);
         if (updatedMeasurement == null) {

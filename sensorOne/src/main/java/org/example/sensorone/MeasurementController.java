@@ -19,7 +19,7 @@ public class MeasurementController {
     private MeasurementService measurementService;
 
     /**
-     * Adds a new measurement
+     * Post endpoint that adds a new measurement
      * @param measurement
      * @return
      */
@@ -29,7 +29,7 @@ public class MeasurementController {
     }
 
     /**
-     * Returns all measurements of a specific sensor
+     * Get Entdpoint that returns all measurements of a specific sensor
      * @param sensorId
      * @return list of measurements of the specific sensor
      */
@@ -44,6 +44,7 @@ public class MeasurementController {
      * @param newMeasurement
      * @return returns the new measurement
      */
+    @PutMapping("{id}")
     public ResponseEntity<Measurement> updateMeasurement(@PathVariable Long id, @RequestBody Measurement newMeasurement) {
         Measurement updatedMeasurement = measurementService.updateMeasurement(id, newMeasurement);
         if (updatedMeasurement == null) {

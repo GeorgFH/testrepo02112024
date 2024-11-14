@@ -10,7 +10,6 @@ import jakarta.persistence.*;
 public class Sensor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(description = "Unique identifier of the sensor", example = "1")
     private Long id;
 

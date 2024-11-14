@@ -28,5 +28,15 @@ Content-Type: application/json
 ### Receive all measurements from sensor 1
 GET http://localhost:8081/measurements/sensor/1
 
-###
-http://localhost:8081/swagger-ui/index.html
+### Update a measurement
+PUT http://localhost:8081/measurements/17
+Content-Type: application/json
+
+{
+  "timestamp": "2024-11-07T12:00:00Z",
+  "temperature": 80.5,
+  "humidity": 99.0
+}
+
+### Swagger
+http://localhost:8082/swagger-ui/index.html

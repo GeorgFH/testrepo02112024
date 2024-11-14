@@ -1,3 +1,8 @@
+### Check the connection to sensorOne
 http://localhost:8888/sensorOne/default
+
+### Check the connection to sensorTwo
+http://localhost:8888/sensorTwo/default
+
 
 

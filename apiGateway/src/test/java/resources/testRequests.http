@@ -1,0 +1,96 @@
+### Create sensor one
+POST http://localhost:8080/sensorone/sensor
+Content-Type: application/json
+
+{
+  "name": "Sensor1",
+  "location": "Living Room",
+  "active": true,
+  "type": "INDOOR"
+}
+
+### Retrieve sensor one
+GET http://localhost:8080/sensorone/sensor
+
+### Create a new measurement on sensor one
+POST http://localhost:8080/sensorone/measurements
+Content-Type: application/json
+
+{
+  "timestamp": "2024-11-01T12:30:00",
+  "temperature": 50.0,
+  "humidity": 22.2,
+  "sensor": {
+    "id": 1
+  }
+}
+
+### Receive all measurements from sensor one
+GET http://localhost:8080/sensorone/measurements/sensor/1
+
+### Update a measurement
+PUT http://localhost:8080/sensorone/measurements/1
+Content-Type: application/json
+
+{
+  "timestamp": "2024-11-07T12:00:00Z",
+  "temperature": 80.5,
+  "humidity": 99.0
+}
+
+### Create sensor two
+POST http://localhost:8080/sensortwo/sensor
+Content-Type: application/json
+
+{
+  "name": "Sensor2",
+  "location": "Bath Room",
+  "active": true,
+  "type": "INDOOR"
+}
+
+### Retrieve sensor two
+GET http://localhost:8080/sensortwo/sensor
+
+### Create a new measurement on sensor two
+POST http://localhost:8080/sensortwo/measurements
+Content-Type: application/json
+
+{
+  "timestamp": "2024-11-07T19:50:00",
+  "temperature": 22.0,
+  "humidity": 99.9,
+  "sensor": {
+    "id": 2
+  }
+}
+
+### Receive all measurements from sensor two
+GET http://localhost:8080/sensortwo/measurements/sensor/2
+
+### Update a measurement
+PUT http://localhost:8080/sensortwo/measurements/2
+Content-Type: application/json
+
+{
+  "timestamp": "2024-11-07T12:00:00Z",
+  "temperature": 10.1,
+  "humidity": 20.5
+}
+
+### Delete all measures of sensor 1
+DELETE http://localhost:8080/sensorone/measurements/sensor/1
+
+### Delete all measures of sensor 2
+DELETE http://localhost:8080/sensortwo/measurements/sensor/2
+
+
+### Usage of the Spring Boot Actuator
+http://localhost:8080/actuator
+
+### Usage of the Spring Boot Actuator - health
+http://localhost:8080/actuator/health
+
+### Usage of the Spring Boot Actuator - info
+http://localhost:8080/actuator/info
+
